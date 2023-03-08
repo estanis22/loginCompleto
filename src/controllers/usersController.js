@@ -20,9 +20,7 @@ const usersController = {
     return res.render("login")
   },
   profile: (req,res) => {
-    return res.render("profile", {
-      user: req.session.userLogged
-    })
+    return res.render("profile", {user: req.session.userLogged})
   },
   processRegister:(req,res) => {
     // este genera un array con objetos literales con lo que recibe el body, msg, value, etc
@@ -75,15 +73,23 @@ const usersController = {
       })
     }
     let userToLogin = users.find(user => user.email === req.body.email)
-    if (userToLogin) {
+    if(userToLogin == null){
+      return res.render("login", {
+        errors: {
+          email: {
+            msg: "No se encuentra registrado"
+          }
+        },
+        oldData: req.body
+      });
+    } else {
       let passwordOk = bcrypt.compareSync(req.body.password, userToLogin.password);
       if (passwordOk) {
-        //delete userToLogin.password;
         req.session.userLogged = userToLogin
         if(req.body.rememberme){
           res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60) * 2})
         }
-        return res.render ("profile", { user: req.session.userLogged})
+        return res.redirect ("/profile")
       } else {
         return res.render("login", {
           errors: {
@@ -93,30 +99,18 @@ const usersController = {
           },
           oldData: req.body
         });
-      };
-    };
-    // Enviar un mensaje de error
-    return res.render("login", {
-      errors: {
-        email: {
-          msg: "No se encuentra registrado"
-        }
-      },
-      oldData: req.body
-    });
+      }
+    }
   },
   index: (req, res) => {
     console.log("ENTRE AL INDEX")
-    if (req.session.user) {
+    if (req.session.userLogged) {
       // Si el usuario está logueado, redirigirlo a su perfil
-      return res.redirect('/profile');
+      return res.redirect('profile');
     } else {
       // Si el usuario no está logueado, redirigirlo a la vista de login
-      return res.redirect('/login');
+      return res.redirect('login');
     }
-  },
-  limits: (req, res) => {
-    res.status(404).send('Las unicas rutas posibles son /login, /register y /profile. La renderizacion de las mismas depende si estas logueado o no.')
   },
   logout: (req,res) => {
     res.clearCookie("userEmail")

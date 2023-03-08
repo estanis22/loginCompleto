@@ -6,9 +6,15 @@
 <body>
   <h1>Perfil</h1>
   
-    <div>
-        bienvenido my friend <%= user.fullName %> 
-    </div>
+  <div>
+      Bienvenido my friend <%= user.fullName %>
+      <div class="button-box">
+        <button>Eliminar usuario</button>
+        <form action="/logout" method="post">
+          <button type="submit">Cerrar sesión</button>
+        </form> 
+      </div>
+  </div>
    
    
   

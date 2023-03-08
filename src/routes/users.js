@@ -13,16 +13,15 @@ const usersController = require('../controllers/usersController');
 const uploadFile = require ("../middlewares/multerMiddleware")
 const validationsRegister = require ("../middlewares/validateRegisterMiddleware")
 const validationsLogin = require ("../middlewares/validateLoginMiddleware")
-const requireLogin = require ("../middlewares/requireLogin")
-const noHomeMiddleware= require ("../middlewares/noHomeMiddleware")
-const userMiddleware = require ("../middlewares/userMiddleware")
+const guestPageMiddleware = require ("../middlewares/guestPageMiddleware")
+const userPageMiddleware= require ("../middlewares/userPageMiddleware")
 
 
-router.get('/login', requireLogin, usersController.login);
-router.get('/register', requireLogin, usersController.register);
-router.get('/profile', requireLogin, usersController.profile);
+router.get('/login', guestPageMiddleware, usersController.login);
+router.get('/register', guestPageMiddleware, usersController.register);
+router.get('/profile', userPageMiddleware, usersController.profile);
 router.get('*', usersController.index);// Este get debe ir ultimo!
-router.get('/logout',requireLogin, usersController.logout);
+router.get('/logout', guestPageMiddleware, usersController.logout);
 // mismo name que en html "avatar"
 router.post('/register', uploadFile.single ("avatar"), validationsRegister, usersController.processRegister);
 router.post('/profile', validationsLogin, usersController.processLogin);
