@@ -94,5 +94,21 @@
   "password": "$2a$10$eSemy2Y9zuQFrcGblSSsduO3b2HiN6kA6i8WXZTFBQcoR9xD7/w52",
   "country": "AR",
   "avatar": " "
+ },
+ {
+  "id": 1678215798306,
+  "fullName": "a",
+  "email": "a@b.com",
+  "password": "$2a$10$4QPLfSDhitE3pT4MWDQDZurxhQSnZAJIc8QI1cIvIAwTe6e5Thqa6",
+  "country": "AR",
+  "avatar": " "
+ },
+ {
+  "id": 1678217258828,
+  "fullName": "a",
+  "email": "a@c.com",
+  "password": "$2a$10$3zvqgXFaEj34frgl/rowO.DtXedWPaJZBB8Hz8Z5o3ZxlQCkjNfIe",
+  "country": "AR",
+  "avatar": " "
  }
 ]

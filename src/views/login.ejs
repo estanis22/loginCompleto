@@ -5,7 +5,7 @@
   </head>
   <body>
     <h1>Login</h1>
-    <form action="/login" method="POST">
+    <form action="/profile" method="POST">
       <label for="email">Email:</label><br>
       <input type="email" id="email" name="email">
       <% if(locals.errors && errors.email) {%> 
@@ -31,5 +31,6 @@
           <input type="submit" value="Submit">
         </div>
     </form>
+    <div>No estás registrado? <a href="/register">Registrarme</a></div>
   </body>
 </html>

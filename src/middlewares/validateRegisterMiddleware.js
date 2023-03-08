@@ -1,4 +1,3 @@
-const path = require ("path")
 const { body } = require ("express-validator")
 
 const registerValidator = [
@@ -12,16 +11,3 @@ const registerValidator = [
 ]
 
 module.exports = registerValidator
-/*body("avatar").custom((value, { req }) => {
-    let file = req.file
-    let acceptedExtensions = [ ".jpg", ".png", ".gif"];
-
-    if (!file){
-        throw new Error ("Tienes que subir imagen")
-    }else{
-        let fileExtension = path.extname(file.originalname)
-        if(!acceptedExtensions.includes(fileExtension)){
-            throw new Error ("Las extensiones permitidas son " + acceptedExtensions.join(", "))
-        }
-    }
-})*/

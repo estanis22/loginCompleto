@@ -13,16 +13,18 @@ const usersController = require('../controllers/usersController');
 const uploadFile = require ("../middlewares/multerMiddleware")
 const validationsRegister = require ("../middlewares/validateRegisterMiddleware")
 const validationsLogin = require ("../middlewares/validateLoginMiddleware")
-const authMiddleware= require ("../middlewares/authMiddleware")
-const guestMiddleware = require ("../middlewares/guestMiddleware")
+const requireLogin = require ("../middlewares/requireLogin")
+const noHomeMiddleware= require ("../middlewares/noHomeMiddleware")
+const userMiddleware = require ("../middlewares/userMiddleware")
 
 
-router.get('/login', guestMiddleware, usersController.login);
-router.get('/register', guestMiddleware, usersController.register);
-router.get('/profile', authMiddleware, usersController.profile);
-router.get('/logout', usersController.logout);
+router.get('/login', requireLogin, usersController.login);
+router.get('/register', requireLogin, usersController.register);
+router.get('/profile', requireLogin, usersController.profile);
+router.get('*', usersController.index);// Este get debe ir ultimo!
+router.get('/logout',requireLogin, usersController.logout);
 // mismo name que en html "avatar"
 router.post('/register', uploadFile.single ("avatar"), validationsRegister, usersController.processRegister);
-router.post('/login', validationsLogin , usersController.processLogin);
+router.post('/profile', validationsLogin, usersController.processLogin);
 
 module.exports = router; 
