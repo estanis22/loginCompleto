@@ -2,12 +2,16 @@
 <html>
 <head>
   <title>Formulario de registro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap" rel="stylesheet">   
+    <link rel="stylesheet" href="/css/register.css" />
 </head>
 <body>
-  <h1>Formulario de registro</h1>
+  <h1>Sign in</h1>
   <form action="/register" method="post" enctype="multipart/form-data">
-    <label for="fullName">Nombre completo:</label><br>
-    <input type="text" id="fullName" name="fullName" value="<%= locals.oldData ? oldData.fullName : null %>"><br>
+    <label for="fullName">Nombre completo:</label>
+    <input type="text" class="input" id="fullName" name="fullName" value="<%= locals.oldData ? oldData.fullName : null %>">
     <!-- Entra si vino errors en la variable local y si existe la propiedad nombre en errors -->
     <% if(locals.errors && errors.fullName) {%> 
       <div class="text-danger">
@@ -15,8 +19,8 @@
       </div>
   <% } %> 
    
-    <label for="email">Correo electrónico:</label><br>
-    <input type="text" id="email" name="email" value="<%= locals.oldData ? oldData.email : null %>"><br>
+    <label for="email">Correo electrónico:</label>
+    <input type="text" class="input" id="email" name="email" value="<%= locals.oldData ? oldData.email : null %>">
     <% if(locals.errors && errors.email) {%> 
       <div class="text-danger">
           <%= errors.email.msg %>
@@ -24,28 +28,35 @@
   <% } %> 
     
 
-    <label for="password">Contraseña:</label><br>
-    <input type="password" id="password" name="password" value="<%= locals.oldData ? oldData.password : null %>"><br>
+    <label for="password">Contraseña:</label>
+    <input type="password" class="input" id="password" name="password" value="<%= locals.oldData ? oldData.password : null %>">
     <% if(locals.errors && errors.password) {%> 
       <div class="text-danger">
           <%= errors.password.msg %>
       </div>
   <% } %> 
 
-    <label for="country">País:</label><br>
+    <label for="country">País:</label>
     <select id="country" name="country">
+      <option value="AR"selected disabled>-- seleccione país --</option>
       <option value="AR">Argentina</option>
-      <option value="CL">Chile</option>
-      <option value="PE">Perú</option>
+      <option value="BOL">Bolivia</option>
       <option value="BR">Brasil</option>
-    </select><br><br>
+      <option value="CL">Chile</option>
+      <option value="COL">Colombia</option>
+      <option value="EC">Ecuador</option>
+      <option value="PY">Paraguay</option>
+      <option value="PE">Perú</option>
+      <option value="UY">Uruguay</option>
+      <option value="VZ">Venezuela</option>
+    </select>
   
     
-
-    <label for="avatar">Imagen de perfil:</label><br>
-    <input type="file" id="avatar" name="avatar"><br><br>
-
-    <input type="submit" value="Registrarse">
+    <label for="avatar">Imagen de perfil:</label>
+      <input type="file" class="avatar" name="avatar">
+    <div class="button-box">
+      <button type="submit">Sign in
+    </div>
   </form> 
 </body>
 </html>
