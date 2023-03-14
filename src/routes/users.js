@@ -21,7 +21,7 @@ router.get('/login', guestPageMiddleware, usersController.login);
 router.get('/register', guestPageMiddleware, usersController.register);
 router.get('/profile', userPageMiddleware, usersController.profile);
 router.get('*', usersController.index);// Este get debe ir ultimo!
-router.get('/logout', guestPageMiddleware, usersController.logout);
+router.post('/logout', userPageMiddleware, usersController.logout);
 // mismo name que en html "avatar"
 router.post('/register', uploadFile.single ("avatar"), validationsRegister, usersController.processRegister);
 router.post('/profile', validationsLogin, usersController.processLogin);

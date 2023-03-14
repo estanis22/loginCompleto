@@ -1,0 +1,81 @@
+/* Estilo de fondo */
+body {
+    background-color: #15202B;
+    color: #FFFFFF;
+    font-family: 'Roboto Slab', serif;
+}
+  
+/* Estilo de encabezado */
+h1 {
+    font-size: 36px;
+    margin-bottom: 24px;
+    margin-top: 100px;
+    text-align: center;
+}
+  
+  /* Estilo de formulario */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 24px;
+    background-color: #192734;
+    border-radius: 12px;
+    display: flex;
+  flex-direction: column;
+}
+  
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+  
+input[type="email"],
+input[type="password"] {
+    width: 93%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    background-color: #223344;
+    color: #FFFFFF;
+    font-size: 16px;
+}
+.remember-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+button{
+    background-color: #1DA1F2;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    width: 120px;
+}
+  
+.rememberme {
+    margin-bottom: 16px;
+    font-size: 16px;
+    color: #8899A6;
+    text-align: center
+}
+  
+.final-text {
+    margin-top: 16px;
+    font-size: 16px;
+    color: #8899A6;
+    text-align: center;
+}
+  
+.final-text a {
+    color: #1DA1F2;
+}
+  
+.text-danger {
+    color: #FF0000;
+}
+
+  

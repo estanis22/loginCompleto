@@ -103,7 +103,6 @@ const usersController = {
     }
   },
   index: (req, res) => {
-    console.log("ENTRE AL INDEX")
     if (req.session.userLogged) {
       // Si el usuario está logueado, redirigirlo a su perfil
       return res.redirect('profile');
