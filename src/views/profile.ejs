@@ -2,16 +2,22 @@
 <html>
 <head>
   <title>Perfil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100&display=swap" rel="stylesheet">   
+    <link rel="stylesheet" href="/css/profile.css" />
 </head>
 <body>
   <h1>Perfil</h1>
   
-  <div>
-      Bienvenido my friend <%= user.fullName %>
+  <div class="info-box">
+    <div class="saludo">
+      Bienvenido <%= user.fullName %> !!
+    </div>
       <div class="button-box">
-        <button>Eliminar usuario</button>
+        <button class="delete">Eliminar usuario</button>
         <form action="/logout" method="POST">
-          <button type="submit">Cerrar sesión</button>
+          <button type="submit" class="logout">Log out</button>
         </form> 
       </div>
   </div>

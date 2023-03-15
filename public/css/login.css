@@ -55,6 +55,7 @@ button{
 }
   
 .rememberme {
+    display: flex;
     margin-bottom: 16px;
     font-size: 16px;
     color: #8899A6;
