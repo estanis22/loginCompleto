@@ -115,6 +115,14 @@ const usersController = {
     res.clearCookie("userEmail")
     req.session.destroy();
     return res.redirect("login")
+  },
+  delete: (req, res) =>  {
+    console.log("Entre al delete")
+    let userFound = users.find(user => user.id === req.params.id)
+    users.splice(userFound, 1)
+    fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "))
+    // vulevo a /
+    return res.render("login")
   }
 }
 

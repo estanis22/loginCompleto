@@ -15,7 +15,9 @@
       Bienvenido <%= user.fullName %> !!
     </div>
       <div class="button-box">
-        <button class="delete">Eliminar usuario</button>
+        <form action="/delete/<%= user.id %>?_method=DELETE" method="POST">
+          <button class="delete">Eliminar usuario</button>
+        </form>
         <form action="/logout" method="POST">
           <button type="submit" class="logout">Log out</button>
         </form> 

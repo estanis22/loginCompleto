@@ -25,5 +25,6 @@ router.post('/logout', userPageMiddleware, usersController.logout);
 // mismo name que en html "avatar"
 router.post('/register', uploadFile.single ("avatar"), validationsRegister, usersController.processRegister);
 router.post('/profile', validationsLogin, usersController.processLogin);
+router.delete('/delete/:id', usersController.delete)
 
 module.exports = router; 
