@@ -46,16 +46,34 @@ const usersController = {
         oldData: req.body
       });
     };
-    let newUser = {
-      id: Date.now(),
-      fullName: req.body.fullName,
-      email: req.body.email,
-      // encripto contraseña, el 10 se pone, es para que tenga un minimo de dificultad
-      password:bcrypt.hashSync(req.body.password, 10),
-      country: req.body.country,
-      avatar: " "//req.file.filename,
-    };
-    users.push(newUser);
+
+    if(!req.file){
+      let newUser = {
+        id: Date.now(),
+        fullName: req.body.fullName,
+        email: req.body.email,
+        // encripto contraseña, el 10 se pone, es para que tenga un minimo de dificultad
+        password:bcrypt.hashSync(req.body.password, 10),
+        country: req.body.country,
+        avatar: "1_img.jpg"//req.file.filename,
+      };
+
+      users.push(newUser);
+
+    }else{
+      let newUser = {
+        id: Date.now(),
+        fullName: req.body.fullName,
+        email: req.body.email,
+        // encripto contraseña, el 10 se pone, es para que tenga un minimo de dificultad
+        password:bcrypt.hashSync(req.body.password, 10),
+        country: req.body.country,
+        avatar: req.file.filename,
+      };
+
+      users.push(newUser);
+    }
+    
     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "))
     // vulevo a /
     return res.render("login")
@@ -117,9 +135,9 @@ const usersController = {
     return res.redirect("login")
   },
   delete: (req, res) =>  {
-    console.log("Entre al delete")
-    let userFound = users.find(user => user.id === req.params.id)
-    users.splice(userFound, 1)
+    let userId = Number(req.params.id)
+    let userIndex = users.findIndex(user => user.id === userId)
+    users.splice(userIndex, 1)
     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "))
     // vulevo a /
     return res.render("login")

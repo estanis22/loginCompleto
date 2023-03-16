@@ -14,14 +14,27 @@
     <div class="saludo">
       Bienvenido <%= user.fullName %> !!
     </div>
-      <div class="button-box">
-        <form action="/delete/<%= user.id %>?_method=DELETE" method="POST">
-          <button class="delete">Eliminar usuario</button>
-        </form>
-        <form action="/logout" method="POST">
-          <button type="submit" class="logout">Log out</button>
-        </form> 
-      </div>
+      <% if (user.avatar == "1_img.jpg"){ %>
+        <img
+          src="/images/avatars/1_img.jpg"
+          alt="Imagen de perfil"
+          class="avatar"
+        />
+        <% }else{ %>
+        <img
+          src="/images/avatars/<%= user.avatar %>"
+          alt="Imagen de perfil"
+          class="avatar"
+        />
+        <% } %>
+    <div class="button-box">
+      <form action="/delete/<%= user.id %>?_method=DELETE" method="POST">
+        <button class="delete">Eliminar usuario</button>
+      </form>
+      <form action="/logout" method="POST">
+        <button type="submit" class="logout">Log out</button>
+      </form> 
+    </div>
   </div>
    
    

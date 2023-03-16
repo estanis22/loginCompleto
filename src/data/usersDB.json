@@ -1,10 +1,18 @@
 [
  {
-  "id": 1678903608605,
-  "fullName": "Estanislao Perez Pesado",
-  "email": "estanislaoperezpesado@gmail.com",
-  "password": "$2a$10$0CfAEmZFW/Gp1TvCNp4cx.zP6vPk0YUhEtfpTsYY0xc0THa9MT1le",
+  "id": 1678990250357,
+  "fullName": "Homer X",
+  "email": "homerx@gmail.com",
+  "password": "$2a$10$7rHJAsVDNr3x4PDRoiFlXOrlskfgFzwgUDGqoqSHZYm47JLcpbaCG",
   "country": "AR",
-  "avatar": " "
+  "avatar": "1_img.jpg"
+ },
+ {
+  "id": 1678991854643,
+  "fullName": "Dwight Schrute",
+  "email": "dwightschrute@gmail.com",
+  "password": "$2a$10$t.OEuu8KPBkSl2xKq1LMveO1KpjjK3qz9FcdW84KeKopQy4/9NDSm",
+  "country": "COL",
+  "avatar": "1678991854631_img.jpeg"
  }
 ]
