@@ -21,7 +21,7 @@ app.use(methodOverride("_method")); // Para poder pisar el method="POST" en el f
 app.use(session({
 secret: 'Nombre del sitio',
       resave: false,
-      saveUninitialized: true,
+      saveUninitialized: false,
 }));
 app.use(cookieParser());
 const userLoggedMiddleware = require ("./src/middlewares/userLoggedMiddleware") // requiero el middleware para ver si hay alguien logueado.

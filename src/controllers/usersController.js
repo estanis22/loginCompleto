@@ -105,7 +105,7 @@ const usersController = {
       if (passwordOk) {
         req.session.userLogged = userToLogin
         if(req.body.rememberme){
-          res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60) * 2})
+          res.cookie("userEmail", req.body.email, { maxAge: (1000 * 60)})
         }
         return res.redirect ("/profile")
       } else {
@@ -135,7 +135,7 @@ const usersController = {
     return res.redirect("login")
   },
   delete: (req, res) =>  {
-    let userId = Number(req.params.id)
+     let userId = Number(req.params.id)
     let userIndex = users.findIndex(user => user.id === userId)
     users.splice(userIndex, 1)
     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, " "))
